@@ -2,16 +2,16 @@ const fs = require('fs');
 const inquirer = require("inquirer");
 const util = require("util");
 
-
 const writeFileAsync = util.promisify(fs.writeFile)
- 
+
+// user prompts
 const promptUser = () =>
-     inquirer.prompt([
+    inquirer.prompt([
 
         {
             type: "input",
-            name: "name",
-            message: "what is your name",
+            name: "title",
+            message: "Name the title  of your project?",
         },
         {
             type: "input",
@@ -40,14 +40,29 @@ const promptUser = () =>
         },
 
     ]);
-    // const generator
-     const gen = async () => {
-        try {
-            const data = await promptUser();
-            const readme = generator(data);
-            await writeFileAsync("README.MD", readme);
-            console.log("success");
-        }
-        catch (err) {console.log(err)}
-    };
-    gen();
+
+
+// function to  push  the  prompts
+const generator = (data) => {
+    // put data to readme from prompts
+    return `
+    ${data.title} 
+    ${data.location}
+    ${data.bio}
+    ${data.github}
+    ${data.linkedIn}
+    ${data.filename}`;
+
+}
+const gen = async () => {
+    try {
+        const data = await promptUser();
+        console.log(data);
+        
+        const readme = generator(data);
+        await writeFileAsync("README.MD", readme);
+        console.log("success");
+    }
+    catch (err) { console.log(err) }
+};
+gen();
