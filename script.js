@@ -7,7 +7,10 @@ const writeFileAsync = util.promisify(fs.writeFile)
 // user prompts
 const promptUser = () =>
     inquirer.prompt([
-
+        // THEN a high-quality, professional README.md is 
+        // generated with the title of my project and sections entitled Description, 
+        // Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
+        // how to create sections like decription ,TOC , and questions?
         {
             type: "input",
             name: "title",
@@ -20,7 +23,7 @@ const promptUser = () =>
         },
         {
             type: "input",
-            name: "bio",
+            name: "description",
             message: "what is your bio?",
         },
         {
@@ -48,7 +51,8 @@ const generator = (data) => {
     return `
     ${data.title} 
     ${data.location}
-    ${data.bio}
+    ## Description
+    ${data.description}
     ${data.github}
     ${data.linkedIn}
     ${data.filename}`;
@@ -58,7 +62,7 @@ const gen = async () => {
     try {
         const data = await promptUser();
         console.log(data);
-        
+
         const readme = generator(data);
         await writeFileAsync("README.MD", readme);
         console.log("success");
