@@ -11,53 +11,60 @@ const promptUser = () =>
         // generated with the title of my project and sections entitled Description, 
         // Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
         // how to create sections like decription ,TOC , and questions?
-        {
-            type: "input",
-            name: "title",
-            message: "Name the title  of your project?",
-        },
-        {
-            type: "input",
-            name: "location",
-            message: "what is your Location?",
-        },
+        // {
+        //     type: "input",
+        //     name: "title",
+        //     message: "Name the title  of your project?",
+        // },
+        // {
+        //     type: "input",
+        //     name: "location",
+        //     message: "what is your Location?",
+        // },
         {
             type: "input",
             name: "description",
             message: "what is your bio?",
         },
-        {
-            type: "input",
-            name: "github",
-            message: "what is your github accout?",
-        },
-        {
-            type: "input",
-            name: "linkedIn",
-            message: "what is your linkedIn Id?",
-        },
-        {
-            type: "input",
-            name: "filename",
-            message: "what would you name your file?",
-        },
+        // {
+        //     type: "input",
+        //     name: "github",
+        //     message: "what is your github accout?",
+        // },
+        // {
+        //     type: "input",
+        //     name: "linkedIn",
+        //     message: "what is your linkedIn Id?",
+        // },
+        // {
+        //     type: "input",
+        //     name: "filename",
+        //     message: "what would you name your file?",
+        // },
 
     ]);
 
 
 // function to  push  the  prompts
-const generator = (data) => {
-    // put data to readme from prompts
-    return `
-    ${data.title} 
-    ${data.location}
-    ## Description
-    ${data.description}
-    ${data.github}
-    ${data.linkedIn}
-    ${data.filename}`;
+// const generator = (data) => {
+//     // put data to readme from prompts
+//     return (`
+//     ${data.title} 
+//     ${data.location}
+//     ## Description
+//     ${data.description}
+//     ${data.github}
+//     ${data.linkedIn}
+//     ${data.filename}`);
 
-}
+// }
+
+function generator(data) {
+    return `# Test
+       ## Description
+       ${data.description}
+    `;
+  }
 const gen = async () => {
     try {
         const data = await promptUser();
