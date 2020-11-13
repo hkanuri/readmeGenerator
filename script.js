@@ -60,7 +60,8 @@ const promptUser = () =>
 // }
 
 function generator(data) {
-    return `# Test ## Description ${data.description}`;
+    return `# Test
+    ## Description ${data.description}`;
   }
 
 const gen = async () => {
