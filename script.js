@@ -64,12 +64,11 @@ const promptUser = () =>
 //     ## Description ${data.description}`;
 //   }
 
-  function generator(data) {
-    let string = ``
-    string += '# Test\n'
-    string += '## Description\n'
-    string += `${data.description}\n`
-     return string
+function generator(data) {
+    return `# Test
+## Description
+${data.description}
+`
    }
 
 const gen = async () => {
