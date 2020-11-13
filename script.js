@@ -11,11 +11,11 @@ const promptUser = () =>
         // generated with the title of my project and sections entitled Description, 
         // Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
         // how to create sections like decription ,TOC , and questions?
-        // {
-        //     type: "input",
-        //     name: "title",
-        //     message: "Name the title  of your project?",
-        // },
+        {
+            type: "input",
+            name: "title",
+            message: "Name the title  of your project?",
+        },
         // {
         //     type: "input",
         //     name: "location",
@@ -24,7 +24,7 @@ const promptUser = () =>
         {
             type: "input",
             name: "description",
-            message: "what is your bio?",
+            message: "Enter the decription of your project.",
         },
         // {
         //     type: "input",
@@ -65,11 +65,18 @@ const promptUser = () =>
 //   }
 
 function generator(data) {
-    return `# Test
+    return `# Description
 ## Description
 ${data.description}
 `
    }
+function generator(data) {
+   return `# Title
+## Title
+${data.title}
+`
+   }
+
 
 const gen = async () => {
     try {
